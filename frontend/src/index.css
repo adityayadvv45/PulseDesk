@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  /* --- Surfaces --- */
+  --surface-0: #f7f7f8;
+  --surface-1: #ffffff;
+  --surface-2: #fbfbfc;
+  --surface-3: #f0f1f3;
+
+  /* --- Borders --- */
+  --border: #e6e7eb;
+  --border-strong: #d4d6db;
+  --border-stronger: #b9bcc3;
+  --border-accent: #bcd2ff;
+  --border-warning: #f3d99b;
+  --border-danger: #f3b8b8;
+
+  /* --- Text --- */
+  --text-primary: #16181d;
+  --text-secondary: #565a64;
+  --text-muted: #8b8f98;
+  --text-accent: #2952cc;
+  --text-success: #1c7c4e;
+  --text-warning: #92660a;
+  --text-danger: #c0312b;
+
+  /* --- Fills (solid, for bars / dots / buttons) --- */
+  --fill-accent: #2f5fe0;
+  --fill-accent-hover: #2750c4;
+  --fill-success: #1f9d5e;
+  --fill-warning: #d8970f;
+  --fill-danger: #e5453f;
+  --on-accent: #ffffff;
+
+  /* --- Background tints (for badges) --- */
+  --bg-accent: #eaf0ff;
+  --bg-success: #e6f7ee;
+  --bg-warning: #fdf2dc;
+  --bg-danger: #fdeaea;
+
+  /* --- Type --- */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  /* --- Shape --- */
+  --radius: 7px;
+  --radius-lg: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--surface-0);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--bg-accent);
+}
+
+a {
+  color: inherit;
+}
+
+/* Scrollbars: thin, quiet */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--fill-accent);
+  outline-offset: 1px;
+  border-radius: 4px;
+}

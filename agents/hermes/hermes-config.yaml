@@ -1,0 +1,30 @@
+# Hermes Agent config — orchestrator / product owner for the PulseDesk build.
+# Secrets are redacted to ${ENV_VAR} placeholders. Real values live only in
+# your local shell env / .env, never committed.
+
+provider: eastrouter
+base_url: https://api.eastrouter.com/v1
+api_key: ${EASTROUTER_API_KEY}
+
+# Strong reasoning model for sprint planning, dependency graphing and
+# cross-dependency calls — see handbook §02 model segmentation.
+model: deepseek/deepseek-v4-pro
+
+memory:
+  enabled: true
+  persistence: local
+
+skills:
+  autoLearn: true
+  directory: ../skills
+
+slack:
+  channels:
+    - "#sprint-main"      # you <-> Hermes: spec, sprint planning, decisions, status
+    - "#agent-coder"      # Hermes <-> OpenClaw: task handoffs & clarifications
+    - "#human-review"     # release-candidate approvals before merge
+
+# Hermes never merges to main. It opens/queues PRs for human review only.
+policies:
+  auto_merge: false
+  require_human_approval: true

@@ -1,0 +1,30 @@
+# Backend
+backend/vendor/
+backend/.env
+backend/.env.*
+backend/database/database.sqlite
+backend/storage/
+backend/public/build/
+backend/public/hot
+backend/public/storage
+backend/auth.json
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.env
+frontend/*.local
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+.fleet/
+.nova/
+.zed/
+*.swp
+
+# Secrets
+.env
+slack-config.json

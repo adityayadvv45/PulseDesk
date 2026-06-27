@@ -1,0 +1,33 @@
+{
+  "_comment": "OpenClaw config — the coder/hands for the PulseDesk build. Secrets redacted to ${ENV_VAR} placeholders; real values live only in local env, never committed.",
+
+  "model": {
+    "base_url": "https://api.eastrouter.com/api/anthropic",
+    "auth_token": "${EASTROUTER_API_KEY}",
+    "model": "z-ai/glm-5.1",
+    "_comment": "Recommended default per handbook §02/§03 — strong all-round coding + planning, used here for implementation only (Hermes owns planning).",
+    "fallback_model": "z-ai/glm-4.5-air"
+  },
+
+  "slack": {
+    "enabled": true,
+    "app_token": "${SLACK_APP_TOKEN}",
+    "bot_token": "${SLACK_BOT_TOKEN}",
+    "channels": ["#agent-coder", "#agent-log", "#ci-cd"]
+  },
+
+  "workspace": {
+    "working_dir": "../../",
+    "command_execution": true,
+    "allowed_paths": ["backend/", "frontend/"]
+  },
+
+  "skills": {
+    "directory": "../skills"
+  },
+
+  "reporting": {
+    "format": "What I Did / What's Left / What Needs Your Call",
+    "channel": "#agent-log"
+  }
+}
