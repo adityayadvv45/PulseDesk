@@ -2,6 +2,16 @@
 
 use Illuminate\Support\Str;
 
+$databasePath = env('DB_DATABASE');
+
+if (empty($databasePath) || $databasePath === ':memory:') {
+    $databasePath = database_path('database.sqlite');
+} elseif (! Str::startsWith($databasePath, ':memory:')) {
+    $databasePath = (str_starts_with($databasePath, '/') || preg_match('#^[A-Za-z]:[\\\\/]#', $databasePath))
+        ? $databasePath
+        : base_path($databasePath);
+}
+
 return [
 
     /*
@@ -34,7 +44,7 @@ return [
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'database' => $databasePath,
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'busy_timeout' => null,
