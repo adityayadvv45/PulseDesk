@@ -1,4 +1,4 @@
-# PulseDesk — Forge 2 · Edition 1
+# PulseDesk — 
 
 A multi-tenant support-desk SaaS built solo in one day by orchestrating two AI agents —
 **Hermes** (orchestrator / product owner) and **OpenClaw** (coder) — over Slack, following
